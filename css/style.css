@@ -1,0 +1,225 @@
+html {
+    position: relative;
+}
+
+body {
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+
+.jumbotron {
+    height: 450px;
+    background-image: url('../img/profile.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: 0 -9%;
+    color: #eaeaea;
+    overflow: hidden;
+}
+
+.jumbotron h1,
+.jumbotron p {
+    text-shadow: 2px 2px 10px rgba(1, 1, 0, 0.5);
+}
+
+.navbar a img {
+    width: 30px;
+}
+
+#about,
+#portofolio,
+#contact {
+    display: inline-block;
+    height: 50px;
+}
+
+.jumbotron img {
+    width: 25%;
+    border: 5px solid #eaeaea;
+    box-shadow: 2px 2px 10px rgba(1, 1, 0, 0.5);
+}
+
+hr {
+    width: 250px;
+    border-top: 3px solid #666;
+}
+
+section {
+    min-height: 400px;
+}
+
+.pKiri,
+.pKanan {
+    opacity: 0;
+    transform: translate(-50px, 0) rotate(20deg);
+    transition: 1s;
+}
+
+.pKanan {
+    transform: translate(50px, 0) rotate(-20deg);
+}
+
+.pKiri.pMuncul,
+.pKanan.pMuncul {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+
+
+.portofolio {
+    padding-top: 10px;
+}
+
+.portofolio .img-thumbnail {
+    opacity: 0;
+    transition: 1s;
+    transform: translate(0px, -40px);
+}
+
+.portofolio .img-thumbnail.muncul {
+    opacity: 1;
+    transform: translate(0px, 0px);
+}
+
+.contact .form-group,
+.contact .form-control {
+    opacity: 0;
+    transition: 1s;
+    transform: translate(0px, -40px);
+}
+
+.contact .form-group.gmuncul,
+.contact .form-control.gmuncul {
+    opacity: 1;
+    transform: translate(0px, 0px);
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    padding: 20px;
+}
+
+footer p,
+a {
+    color: #eee;
+    line height: 80;
+    font-size: 0.9em;
+}
+
+
+
+
+
+
+/* Overlay */
+.overlay {
+    display: none;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0);
+    z-index: 9999;
+    transform: scale(0);
+    transition: 0.8s;
+    padding: 100px;
+    text-align: center;
+}
+
+.overlay:target {
+    display: inline-block;
+    transform: scale(1);
+    width: auto;
+    height: auto;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.overlay img {
+    max-height: 100%;
+    max-width: 100%;
+    box-shadow: 0px 0px 2px 2px rgba(255, 255, 255, 0.5);
+}
+
+.overlay:target img {
+    margin-top: 5%;
+    animation: zoom 1s;
+
+}
+
+.overlay .close {
+    position: absolute;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 25px;
+    top: 15%;
+    left: 48%;
+    color: white;
+    text-decoration: none;
+    background-color: rgba(255, 0, 0, 0.5);
+    opacity: 0;
+}
+
+.overlay:target .close {
+    animation: down .5s .5s forwards;
+}
+
+.overlay .next {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    background-image: url(../img/next.png);
+    top: 50%;
+    right: 18%;
+    margin-left: 40px;
+}
+
+.overlay .prev {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    background-image: url(../img/prev.png);
+    top: 50%;
+    left: 18%;
+    margin-right: 40px;
+}
+
+.overlay:target {
+    animation: zoom 1s forwards;
+}
+
+@keyframes zoom {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes down {
+    0% {
+        opacity: 0;
+        margin-top: -20px;
+    }
+
+    100% {
+        opacity: 1;
+        margin-top: 0;
+    }
+}
